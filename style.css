@@ -239,6 +239,13 @@ img { max-width: 100%; display: block; }
   margin: 0;
 }
 
+.lede {
+  font-size: 1.08rem;
+  color: var(--ink-soft);
+  max-width: 68ch;
+  margin: 0 0 40px;
+}
+
 .pull-quote {
   font-family: var(--serif);
   font-size: clamp(1.3rem, 2.6vw, 1.7rem);
