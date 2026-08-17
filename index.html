@@ -116,26 +116,96 @@
       <h2>Projects</h2>
     </div>
 
-    <div class="project-grid">
+    <!-- SPOTLIGHT CASE STUDY -->
+    <article class="spotlight reveal">
+      <div class="spotlight-top">
+        <span class="project-status">Live in production</span>
+        <a href="https://mentalidadex.org/leziria_europeia/" target="_blank" rel="noopener" class="spotlight-live">mentalidadex.org/leziria_europeia ↗</a>
+      </div>
 
-      <article class="project featured reveal">
-        <div class="project-top">
-          <span class="project-cat">AI-Assisted Product Development · Civic EdTech</span>
-          <span class="project-status">Live</span>
+      <h3 class="spotlight-title">Trivial Lezíria Europeia 2.0</h3>
+      <p class="spotlight-tagline">A bilingual, browser-based quiz-race game teaching Portuguese high school students how the European Parliament works — built with real MEPs, real EU laws, and real regional context, entirely in a single self-contained HTML file.</p>
+      <p class="project-role">AI-Assisted Product Development · Sole Developer · Associação Mentalidade X — Erasmus+ KA154 (Jul 2024 – Jun 2026)</p>
+
+      <p class="spotlight-body">
+        Part of Lezíria Europeia 2.0, an Erasmus+ KA154 project run by Associação Mentalidade X in partnership with
+        Golegã Municipal Council and the Golegã, Azinhaga and Pombalinho School Group. Teams race a pawn along a
+        board from Santarém to the European Parliament, answering real questions across five categories,
+        negotiating "trilogue" alliances, and finishing with either a plenary vote or a structured "Creating a
+        Proposal" exercise that mirrors how the EU actually legislates: analyse → position → negotiate → vote.
+      </p>
+
+      <div class="spotlight-grid">
+        <div>
+          <h4>Why it's interesting, technically</h4>
+          <ul class="spotlight-list">
+            <li><strong>Content</strong> — 250 fact-checked, sourced questions across 5 categories, every one hand-translated into Portuguese, not machine-translated filler.</li>
+            <li><strong>Auth</strong> — Firebase Authentication (email/password + Google OAuth) with re-authentication for sensitive actions, GDPR-conscious by design — no student data collected, GM accounts only.</li>
+            <li><strong>i18n</strong> — a from-scratch bilingual system, no library, switching every string live between English and Portuguese mid-question.</li>
+            <li><strong>Game engine</strong> — a full board-game state machine: turn order, dice bounce mechanics, five question categories, event cards, a trilogue negotiation mini-game, a roll-call voting tool modeled on real EU plenary votes, and a four-stage proposal capstone.</li>
+            <li><strong>Persistence</strong> — <code>localStorage</code> only, zero backend beyond Firebase Auth, deliberately zero-infrastructure so a volunteer team can maintain it long-term.</li>
+            <li><strong>Deployment</strong> — hosted on the organisation's own domain with a custom Firebase-authorized domain, independent of any third-party platform.</li>
+          </ul>
         </div>
-        <h3>Trivial Lezíria Europeia 2.0</h3>
-        <p class="project-role">Sole Developer &amp; Project Lead · Associação Mentalidade X (Erasmus+) · ~4 weeks</p>
-        <p>A bilingual EU-civics board game — physical and digital — teaching Portuguese secondary students how the European Parliament actually works, using real MEPs, real laws, and real regional stakes. Built end-to-end in structured collaboration with an AI development partner: architecture decisions, content research, translation, debugging, and even non-technical deployment (DNS, hosting, Firebase) were all part of the process, not just code generation. Ships as a single zero-dependency HTML file so a non-technical NGO volunteer can maintain it, with Firebase-authenticated Game Masters and no student data ever collected.</p>
-        <ul class="metrics">
-          <li><strong>250</strong> fact-checked questions</li>
-          <li><strong>2</strong> languages (EN/PT)</li>
-          <li><strong>0</strong> backend / student data</li>
-        </ul>
-        <div class="project-tags">
-          <span>AI-Assisted Development</span><span>Firebase Auth</span><span>i18n</span><span>Civic EdTech</span><span>Zero-Dependency Architecture</span>
+
+        <div>
+          <h4>Tech stack</h4>
+          <div class="project-tags">
+            <span>Vanilla JavaScript</span><span>Firebase Auth</span><span>Web Audio API</span><span>Hand-coded SVG</span><span>localStorage</span>
+          </div>
+
+          <h4>Project structure</h4>
+          <pre class="spotlight-code"><code>index.html      — entire application
+                (UI, game engine, i18n, auth, embedded assets)
+questions.json  — content database (source of truth)</code></pre>
+
+          <h4>Running locally</h4>
+          <pre class="spotlight-code"><code>python3 -m http.server 8000</code></pre>
+          <p class="spotlight-note">Then open <code>http://localhost:8000</code> — Firebase Auth requires <code>http://</code>/<code>https://</code>, so opening the file directly via <code>file://</code> won't work.</p>
         </div>
-        <a class="project-link" href="https://mentalidadex.org/leziria_europeia/" target="_blank" rel="noopener">View live game →</a>
-      </article>
+      </div>
+
+      <p class="spotlight-body">
+        Every question carries a source URL and, for the hardest tier, a "did you know" fact, so the deck doubles
+        as a self-checking reference. Content updates only require editing <code>questions.json</code> — the game
+        code never needs to change to refresh the question bank for a new EU parliamentary term.
+      </p>
+
+      <div class="spotlight-approach" id="leziria-approach">
+        <h4>Development approach</h4>
+        <p>
+          Built as a deliberate exercise in AI-assisted product development: every stage — technical architecture
+          decisions, feature implementation, EU/legal content research and fact-checking, bilingual translation,
+          debugging live issues, and even the non-technical deployment (DNS, hosting purchase, Firebase
+          configuration) — was done in direct collaboration with Claude (Anthropic) as a development partner, not
+          as a one-off code generator.
+        </p>
+        <p>
+          In practice: proposing a feature or fix in plain language, reviewing and directing the implementation,
+          catching and correcting real bugs together (including a subtle variable-shadowing issue that silently
+          broke the team-naming UI), verifying factual content against primary sources before it shipped, and
+          iterating through genuine production troubleshooting — Firebase domain authorization errors, DNS
+          propagation, file-manager navigation on an unfamiliar hosting panel — step by step, until the game was
+          live on the organisation's own domain.
+        </p>
+        <p>
+          The result: a working piece of evidence for how far an AI-assisted workflow can carry a real project —
+          from a first prototype to a deployed, authenticated, bilingual, 250-question production application,
+          maintained by a non-developer team.
+        </p>
+      </div>
+
+      <div class="spotlight-footer">
+        <p><strong>Credits</strong> — Built by Fahim Murshed as an ESC/Erasmus+ volunteer with Associação
+          Mentalidade X de Santarém, with development assistance from Claude (Anthropic). Supported by the
+          European Union, Erasmus+, and Associação Mentalidade X.</p>
+        <p><strong>License</strong> — Code: MIT · Content: CC BY-NC-SA 4.0</p>
+      </div>
+
+      <a class="project-link" href="https://mentalidadex.org/leziria_europeia/" target="_blank" rel="noopener">Play the live game →</a>
+    </article>
+
+    <div class="project-grid">
 
       <article class="project featured reveal">
         <div class="project-top">

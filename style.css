@@ -313,6 +313,175 @@ img { max-width: 100%; display: block; }
   gap: 8px 24px;
 }
 
+/* ---------- Spotlight case study ---------- */
+.spotlight {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px;
+  margin-bottom: 40px;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-soft));
+}
+
+.spotlight-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.spotlight-live {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--accent-soft);
+}
+
+.spotlight-live:hover { border-color: var(--accent); }
+
+.spotlight-title {
+  font-family: var(--serif);
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 500;
+  margin: 0 0 14px;
+}
+
+.spotlight-tagline {
+  font-size: 1.05rem;
+  color: var(--ink);
+  max-width: 70ch;
+  margin: 0 0 12px;
+}
+
+.spotlight .project-role {
+  margin-bottom: 28px;
+}
+
+.spotlight-body {
+  color: var(--ink-soft);
+  font-size: 0.96rem;
+  max-width: 78ch;
+  margin: 0 0 32px;
+}
+
+.spotlight-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 40px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.spotlight-grid > div { min-width: 0; }
+
+.spotlight-grid h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.02rem;
+  margin: 0 0 14px;
+}
+
+.spotlight-grid > div > h4:not(:first-child) {
+  margin-top: 24px;
+}
+
+.spotlight-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.spotlight-list li {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.spotlight-list strong { color: var(--ink); }
+
+.spotlight-code {
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 0.8rem;
+  overflow-x: auto;
+  margin: 0 0 12px;
+}
+
+.spotlight-code code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  color: var(--ink-soft);
+  white-space: pre;
+}
+
+.spotlight-note {
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+.spotlight code, .spotlight-note code {
+  font-family: ui-monospace, "SF Mono", Menlo, monospace;
+  background: var(--bg-alt);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-size: 0.85em;
+  color: var(--ink);
+}
+
+.spotlight-approach {
+  background: var(--accent-soft);
+  border-radius: 10px;
+  padding: 28px;
+  margin-bottom: 28px;
+}
+
+.spotlight-approach h4 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 1.05rem;
+  margin: 0 0 14px;
+}
+
+.spotlight-approach p {
+  font-size: 0.92rem;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+
+.spotlight-approach p:last-child { margin-bottom: 0; }
+
+.spotlight-footer {
+  margin-bottom: 24px;
+}
+
+.spotlight-footer p {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+
+.spotlight-footer strong { color: var(--ink); }
+
 /* ---------- Projects ---------- */
 .project-grid {
   display: grid;
@@ -640,6 +809,8 @@ img { max-width: 100%; display: block; }
   .hero-portrait img { width: 160px; height: 160px; }
   .pillar-grid { grid-template-columns: 1fr; }
   .project-grid { grid-template-columns: 1fr; }
+  .spotlight { padding: 28px; }
+  .spotlight-grid { grid-template-columns: 1fr; gap: 28px; }
   .skills-edu { grid-template-columns: 1fr; gap: 40px; }
   .exploring ul { grid-template-columns: 1fr; }
 
