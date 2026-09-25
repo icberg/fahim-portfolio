@@ -599,6 +599,14 @@ img { max-width: 100%; display: block; }
 
 .project-link:hover { text-decoration: underline; }
 
+.project-chart {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  margin-bottom: 16px;
+}
+
+
 /* ---------- Timeline ---------- */
 .timeline {
   position: relative;
