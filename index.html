@@ -260,6 +260,28 @@ questions.json  — content database (source of truth)</code></pre>
 
       <article class="project featured reveal">
         <div class="project-top">
+          <span class="project-cat">Working Prototype &middot; Service Design &middot; 3D / WebGL</span>
+          <span class="project-status">Prototype</span>
+        </div>
+        <h3>Harmony Reach — Eye Twin Simulator</h3>
+        <p class="project-role">Software, AI &amp; Viability Lead · Team project, Product Development course, Univ. of Oulu · Topcon Healthcare case (2026)</p>
+        <p>A working prototype of a mobile eye-screening service with three connected roles: an operator in a screening van takes an eye photo, a remote doctor reviews a 3D digital twin of that eye, and the patient follows their result with a visit code. Our Figma flow showed the idea, but static screens couldn't show that a photo taken in one place turns up as a 3D model somewhere else, so I built the working version. Concept prototype, not a medical device — the 3D eye is a visual model built from a photo and does not measure or diagnose anything.</p>
+        <ul class="spotlight-list">
+          <li><strong>Operator</strong> — intake, then photo capture with pupil centring, an automatic in-browser image-quality check (sharpness, light, glare, centring), and send. Designed for a trained non-specialist driver, not an optometrist.</li>
+          <li><strong>Doctor</strong> — a live queue sorted by urgency, a rotatable 3D eye textured with the patient's real iris, a 3D retina surface built from the fundus photo, visit history, and a Green / Amber / Red triage decision.</li>
+          <li><strong>Patient</strong> — enters a visit code, follows a plain-language timeline (captured → in review → result), and sees their own 3D eye.</li>
+        </ul>
+        <p class="spotlight-note" style="margin-bottom:16px;">Design decisions: photo quality is checked at the edge, not at the hospital, so a bad photo gets retaken on the spot instead of bringing a patient back. Urgent cases sit at the top of the doctor's queue, which is the emergency path the company asked about. The twin is labelled as a visual model, and the optional AI check is limited to photo quality, never a medical opinion.</p>
+        <div class="project-tags">
+          <span>Three.js / WebGL</span><span>Canvas API</span><span>Service Design</span><span>Interaction Design</span><span>Claude Code</span><span>Figma</span>
+        </div>
+        <iframe src="https://icberg.github.io/harmony-reach-eye-twin/" title="Harmony Reach Eye Twin Simulator — live prototype" loading="lazy" allow="fullscreen" style="width:100%; height:640px; border:1px solid var(--line); border-radius:10px; background:var(--card); margin-bottom:12px;"></iframe>
+        <a class="project-link" href="https://icberg.github.io/harmony-reach-eye-twin/" target="_blank" rel="noopener">Open the live prototype in a new tab →</a>
+        <a class="project-link" href="https://github.com/icberg/harmony-reach-eye-twin" target="_blank" rel="noopener">View source on GitHub →</a>
+      </article>
+
+      <article class="project featured reveal">
+        <div class="project-top">
           <span class="project-cat">Comparative Analysis &middot; Business Intelligence &middot; Market Strategy</span>
           <span class="project-status">Completed</span>
         </div>
