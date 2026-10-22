@@ -67,6 +67,20 @@ window.addEventListener("scroll", () => {
 const filterBtns = document.querySelectorAll(".filter-btn");
 const projects = document.querySelectorAll("#projectGrid .project");
 
+// Counts are derived from each card's data-category rather than hardcoded,
+// so the filter badges can't drift out of sync as projects are added/edited.
+filterBtns.forEach((btn) => {
+  const filter = btn.getAttribute("data-filter");
+  const countEl = btn.querySelector(".filter-count");
+  if (!countEl) return;
+  const count = filter === "all"
+    ? projects.length
+    : Array.from(projects).filter((card) =>
+        (card.getAttribute("data-category") || "").split(" ").includes(filter)
+      ).length;
+  countEl.textContent = count;
+});
+
 filterBtns.forEach((btn) => {
   btn.addEventListener("click", () => {
     filterBtns.forEach((b) => b.classList.remove("active"));
